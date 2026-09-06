@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <!-- Sky: creamy yellow to twilight blue/purple -->
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3a2f5a;stop-opacity:1" />
+      <stop offset="35%" style="stop-color:#7b8cba;stop-opacity:1" />
+      <stop offset="65%" style="stop-color:#c9b896;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8d5a3;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Hill gradient: luminous green -->
+    <linearGradient id="hillGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7cb342;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#558b2f;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#33691e;stop-opacity:0.7" />
+    </linearGradient>
+
+    <!-- Mountain texture: blue to dark -->
+    <linearGradient id="mountainBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5c7a99;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#1a2f1a;stop-opacity:0.9" />
+    </linearGradient>
+
+    <!-- Bush dot pattern -->
+    <pattern id="dotPattern" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="2.5" fill="#d44a7a" opacity="0.7" />
+      <circle cx="9" cy="3" r="2" fill="#6a5acd" opacity="0.6" />
+      <circle cx="6" cy="9" r="2.5" fill="#ff6b9d" opacity="0.7" />
+    </pattern>
+
+    <!-- Field line pattern -->
+    <pattern id="fieldLines" x="0" y="0" width="8" height="20" patternUnits="userSpaceOnUse">
+      <line x1="2" y1="0" x2="2" y2="20" stroke="#4a5d23" stroke-width="1.5" opacity="0.4" />
+    </pattern>
+
+    <!-- Soft glow -->
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Tree texture: wavy lines -->
+    <pattern id="treeTexture" x="0" y="0" width="6" height="8" patternUnits="userSpaceOnUse">
+      <path d="M0,0 Q3,4 0,8" fill="none" stroke="#1a3a1a" stroke-width="0.8" opacity="0.5" />
+    </pattern>
+  </defs>
+
+  <!-- Sky background -->
+  <rect width="1200" height="1600" fill="url(#sky)" />
+
+  <!-- Distant mountains left: blue with stipple texture -->
+  <path d="M0,750 L180,600 L360,720 L540,580 L720,680 L900,550 L1080,650 L1200,580 L1200,1600 L0,1600 Z"
+        fill="url(#mountainBlue)" opacity="0.7" />
+  <path d="M0,750 L180,600 L360,720 L540,580 L720,680 L900,550 L1080,650 L1200,580 L1200,1600 L0,1600 Z"
+        fill="url(#dotPattern)" opacity="0.3" />
+
+  <!-- Distant mountain center: tall peak -->
+  <path d="M500,850 L580,650 L660,850 L640,1600 L520,1600 Z"
+        fill="#2d3a2d" opacity="0.6" />
+  <path d="M500,850 L580,650 L660,850 L640,1600 L520,1600 Z"
+        fill="url(#treeTexture)" opacity="0.4" />
+
+  <!-- Distant mountains right: dark textured slope -->
+  <path d="M750,800 L900,650 L1050,750 L1200,620 L1200,1600 L750,1600 Z"
+        fill="#1a2f1a" opacity="0.85" />
+  <path d="M750,800 L900,650 L1050,750 L1200,620 L1200,1600 L750,1600 Z"
+        fill="url(#treeTexture)" opacity="0.6" />
+
+  <!-- Far distance haze -->
+  <path d="M0,900 L1200,800 L1200,1000 L0,1100 Z"
+        fill="#9ca3b8" opacity="0.15" />
+
+  <!-- Mid-ground hill: bright luminous green -->
+  <path d="M0,1050 C300,950 500,1000 800,900 C1000,850 1100,900 1200,950 L1200,1600 L0,1600 Z"
+        fill="url(#hillGreen)" opacity="0.85" />
+
+  <!-- Hill highlight: sunlit side -->
+  <path d="M400,950 C500,920 700,900 850,880 C750,960 600,980 400,950 Z"
+        fill="#9ccc65" opacity="0.4" />
+
+  <!-- Dark bushes left -->
+  <ellipse cx="180" cy="1050" rx="120" ry="80" fill="#1a3a1a" opacity="0.7" />
+  <ellipse cx="180" cy="1050" rx="100" ry="65" fill="url(#dotPattern)" opacity="0.5" />
+
+  <!-- Dark bushes right -->
+  <ellipse cx="1020" cy="980" rx="130" ry="90" fill="#1a3a1a" opacity="0.75" />
+  <ellipse cx="1020" cy="980" rx="110" ry="75" fill="url(#dotPattern)" opacity="0.5" />
+
+  <!-- Small grazing figures with long shadows -->
+  <g fill="#0d1f0d" opacity="0.8">
+    <!-- Figure 1 -->
+    <ellipse cx="680" cy="1020" rx="8" ry="10" />
+    <line x1="680" y1="1030" x2="660" y2="1060" stroke="#0d1f0d" stroke-width="2" />
+    <line x1="680" y1="1030" x2="700" y2="1060" stroke="#0d1f0d" stroke-width="2" />
+    <!-- Shadow -->
+    <line x1="660" y1="1060" x2="640" y2="1070" stroke="#0d1f0d" stroke-width="1.5" opacity="0.5" />
+
+    <!-- Figure 2 -->
+    <ellipse cx="720" cy="1015" rx="7" ry="9" />
+    <line x1="720" y1="1024" x2="705" y2="1050" stroke="#0d1f0d" stroke-width="2" />
+    <line x1="720" y1="1024" x2="735" y2="1050" stroke="#0d1f0d" stroke-width="2" />
+    <!-- Shadow -->
+    <line x1="705" y1="1050" x2="685" y2="1060" stroke="#0d1f0d" stroke-width="1.5" opacity="0.5" />
+  </g>
+
+  <!-- Foreground field: bright chartreuse/yellow-green with vertical streaks -->
+  <path d="M0,1250 C300,1200 600,1230 900,1170 C1000,1150 1100,1170 1200,1200 L1200,1600 L0,1600 Z"
+        fill="#8ba832" opacity="0.9" />
+  <path d="M0,1250 C300,1200 600,1230 900,1170 C1000,1150 1100,1170 1200,1200 L1200,1600 L0,1600 Z"
+        fill="url(#fieldLines)" opacity="0.6" />
+
+  <!-- Field reflections/shine -->
+  <path d="M0,1280 C400,1240 800,1260 1200,1220 L1200,1280 C800,1300 400,1280 0,1320 Z"
+        fill="#a8c84a" opacity="0.3" />
+
+  <!-- Foreground branch: dark gnarled tree -->
+  <g>
+    <!-- Main branch -->
+    <path d="M0,180 Q120,220 240,160 T480,120"
+          fill="none" stroke="#1a0f0a" stroke-width="14" stroke-linecap="round" />
+    <path d="M0,180 Q120,220 240,160 T480,120"
+          fill="none" stroke="#2d1f15" stroke-width="10" stroke-linecap="round" />
+    <!-- Sub-branches -->
+    <path d="M240,160 Q280,140 320,155"
+          fill="none" stroke="#1a0f0a" stroke-width="5" stroke-linecap="round" />
+    <path d="M320,155 Q350,135 380,150"
+          fill="none" stroke="#1a0f0a" stroke-width="4" stroke-linecap="round" />
+  </g>
+
+  <!-- Leaves: pink, purple, green clusters -->
+  <g>
+    <circle cx="140" cy="200" r="7" fill="#d44a7a" opacity="0.85" />
+    <circle cx="175" cy="185" r="6" fill="#9c27b0" opacity="0.8" />
+    <circle cx="210" cy="175" r="8" fill="#7cb342" opacity="0.85" />
+    <circle cx="250" cy="165" r="6" fill="#d44a7a" opacity="0.8" />
+    <circle cx="290" cy="155" r="7" fill="#9c27b0" opacity="0.85" />
+    <circle cx="330" cy="148" r="5" fill="#7cb342" opacity="0.8" />
+    <circle cx="370" cy="140" r="6" fill="#d44a7a" opacity="0.85" />
+    <circle cx="410" cy="132" r="5" fill="#9c27b0" opacity="0.8" />
+    <circle cx="160" cy="215" r="5" fill="#7cb342" opacity="0.75" />
+    <circle cx="195" cy="205" r="6" fill="#d44a7a" opacity="0.8" />
+    <circle cx="230" cy="195" r="5" fill="#9c27b0" opacity="0.75" />
+    <circle cx="270" cy="185" r="7" fill="#7cb342" opacity="0.85" />
+    <circle cx="310" cy="175" r="5" fill="#d44a7a" opacity="0.8" />
+    <circle cx="350" cy="165" r="6" fill="#9c27b0" opacity="0.85" />
+    <circle cx="390" cy="155" r="5" fill="#7cb342" opacity="0.8" />
+    <circle cx="120" cy="210" r="6" fill="#9c27b0" opacity="0.75" />
+    <circle cx="180" cy="225" r="5" fill="#7cb342" opacity="0.8" />
+    <circle cx="220" cy="215" r="6" fill="#d44a7a" opacity="0.8" />
+    <circle cx="260" cy="205" r="5" fill="#9c27b0" opacity="0.75" />
+    <circle cx="300" cy="195" r="7" fill="#7cb342" opacity="0.85" />
+    <circle cx="340" cy="185" r="5" fill="#d44a7a" opacity="0.8" />
+    <circle cx="380" cy="175" r="6" fill="#9c27b0" opacity="0.85" />
+  </g>
+
+  <!-- Soft grain overlay -->
+  <rect width="1200" height="1600" filter="url(#softGlow)" opacity="0.02" />
+
+  <!-- Vignette -->
+  <rect width="1200" height="1600" fill="url(#sky)" opacity="0.15" />
+</svg>

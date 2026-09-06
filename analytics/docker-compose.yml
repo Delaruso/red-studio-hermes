@@ -1,0 +1,31 @@
+version: "3"
+services:
+  umami:
+    image: umamisoftware/umami:postgresql-latest
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      DATABASE_URL: postgresql://umami:umami@db:5432/umami
+      DATABASE_TYPE: postgresql
+      HASH_SALT: d1afcc87f7d71d962add36f6db5ad196083e7eaae037f2e4
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./umami-data:/app/db
+    restart: unless-stopped
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: umami
+      POSTGRES_DB: umami
+      POSTGRES_PASSWORD: umami
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U umami"]
+      interval: 2s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped

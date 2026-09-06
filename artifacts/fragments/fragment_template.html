@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RED ARCHITECTURE — FRAGMENT</title>
+<style>
+  @page { size: A5; margin: 0; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    background: #000;
+    color: #fff;
+    font-family: 'Didot', 'Bodoni MT', 'Noto Serif Display', serif;
+  }
+  .page {
+    width: 148mm; height: 209mm;
+    padding: 18mm;
+    position: relative;
+    page-break-after: always;
+  }
+  .sigil {
+    position: absolute; top: 12mm; left: 12mm;
+    width: 18mm; height: 18mm; opacity: 0.35;
+  }
+  .chapter {
+    position: absolute; top: 12mm; right: 12mm;
+    font-size: 9px; letter-spacing: 4; text-transform: uppercase;
+    color: #C9A84C; opacity: 0.7;
+  }
+  .body {
+    margin-top: 40mm;
+    font-size: 11pt;
+    line-height: 1.7;
+    color: #e5e5e5;
+  }
+  .body p { margin: 0 0 1.1em 0; text-indent: 1.2em; }
+  .body p:first-child { text-indent: 0; }
+  .sigil-footer {
+    position: absolute; bottom: 12mm; left: 50%;
+    transform: translateX(-50%);
+    width: 28mm; height: 28mm; opacity: 0.25;
+  }
+  .classification {
+    position: absolute; bottom: 10mm; right: 12mm;
+    font-size: 8px; letter-spacing: 3; text-transform: uppercase;
+    color: #666;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <img class="sigil" src="sigil_07_fragment.svg" alt="sigil"/>
+    <div class="chapter">Fragment VII</div>
+    <div class="body">
+      <p>The signal does not speak to everyone. It speaks only to those who have already built a quiet room inside themselves where the noise cannot follow.</p>
+      <p>What you are reading now is not content. It is proof that the room exists.</p>
+      <p>Most will stop here. They will feel the weight of the paper, the absence of logos, the refusal to explain itself. They will call it pretension. They will close the tab.</p>
+      <p>You did not.</p>
+      <p>That is the only data point that matters.</p>
+    </div>
+    <img class="sigil-footer" src="sigil_07_fragment.svg" alt="sigil"/>
+    <div class="classification">Restricted Transmission</div>
+  </div>
+</body>
+</html>

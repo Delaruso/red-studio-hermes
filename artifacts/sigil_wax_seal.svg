@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <radialGradient id="wax" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff1a1a"/>
+      <stop offset="60%" stop-color="#cc0000"/>
+      <stop offset="100%" stop-color="#800000"/>
+    </radialGradient>
+    <filter id="emboss">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="1" specularConstant="0.5" specularExponent="10" lighting-color="#ffffff" result="spec">
+        <fePointLight x="100" y="50" z="200"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceAlpha" operator="in" result="specOut"/>
+      <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+  </defs>
+  
+  <!-- Wax background -->
+  <circle cx="100" cy="100" r="90" fill="url(#wax)" opacity="0.95"/>
+  
+  <!-- Wax texture ring -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#ff6666" stroke-width="0.5" opacity="0.4"/>
+  <circle cx="100" cy="100" r="75" fill="none" stroke="#660000" stroke-width="0.5" opacity="0.3"/>
+  
+  <!-- Sigil: The Signal -->
+  <g transform="translate(100, 100)" filter="url(#emboss)">
+    <!-- Outer ring -->
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#ffcccc" stroke-width="2.5" opacity="0.9"/>
+    
+    <!-- Horizontal signal line -->
+    <line x1="-50" y1="0" x2="50" y2="0" stroke="#ffcccc" stroke-width="2.5" opacity="0.9"/>
+    
+    <!-- Center dot (the origin) -->
+    <circle cx="0" cy="0" r="4" fill="#ffcccc" opacity="0.9"/>
+    
+    <!-- Pulse marks at ends -->
+    <line x1="-55" y1="-8" x2="-55" y2="8" stroke="#ffcccc" stroke-width="1.5" opacity="0.7"/>
+    <line x1="55" y1="-8" x2="55" y2="8" stroke="#ffcccc" stroke-width="1.5" opacity="0.7"/>
+  </g>
+  
+  <!-- Edge drip effects -->
+  <path d="M 60 140 Q 55 150 60 160" stroke="#cc0000" stroke-width="1" fill="none" opacity="0.5"/>
+  <path d="M 140 130 Q 145 140 140 150" stroke="#cc0000" stroke-width="1" fill="none" opacity="0.5"/>
+  <path d="M 80 160 Q 75 170 80 180" stroke="#cc0000" stroke-width="1" fill="none" opacity="0.4"/>
+</svg>

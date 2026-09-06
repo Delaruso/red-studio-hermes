@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="sigil-grad-03" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C9A84C"/>
+      <stop offset="100%" stop-color="#E5C77A"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="#000000"/>
+  <g transform="translate(100,100)" stroke="url(#sigil-grad-03)" fill="none" stroke-width="1.5">
+    <rect x="-70" y="-70" width="140" height="140" opacity="0.4"/>
+    <rect x="-55" y="-55" width="110" height="110" opacity="0.6"/>
+    <circle r="40" opacity="0.8"/>
+    <circle r="3" fill="url(#sigil-grad-03)" stroke="none"/>
+  </g>
+</svg>

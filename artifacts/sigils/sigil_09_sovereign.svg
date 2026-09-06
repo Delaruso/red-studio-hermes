@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="sigil-grad-09" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C9A84C"/>
+      <stop offset="100%" stop-color="#E5C77A"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="#000000"/>
+  <g transform="translate(100,100)" stroke="url(#sigil-grad-09)" fill="none" stroke-width="1.5">
+    <polygon points="0,-80 80,0 0,80 -80,0" opacity="0.4"/>
+    <polygon points="0,-60 60,0 0,60 -60,0" opacity="0.6"/>
+    <line x1="-80" y1="0" x2="80" y2="0" opacity="0.5"/>
+    <line x1="0" y1="-80" x2="0" y2="80" opacity="0.5"/>
+    <line x1="-56" y1="-56" x2="56" y2="56" opacity="0.5"/>
+    <line x1="56" y1="-56" x2="-56" y2="56" opacity="0.5"/>
+    <circle r="3" fill="url(#sigil-grad-09)" stroke="none"/>
+  </g>
+</svg>

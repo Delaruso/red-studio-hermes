@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <!-- Black linen texture -->
+    <pattern id="linen" patternUnits="userSpaceOnUse" width="4" height="4">
+      <rect width="4" height="4" fill="#0a0a0a"/>
+      <line x1="0" y1="0" x2="4" y2="4" stroke="#111111" stroke-width="0.5"/>
+      <line x1="0" y1="2" x2="4" y2="2" stroke="#0d0d0d" stroke-width="0.3"/>
+    </pattern>
+    
+    <!-- Cut line style -->
+    <style>
+      .cut { stroke: #ff0001; stroke-width: 1; fill: none; stroke-dasharray: 5,3; }
+      .fold { stroke: #C9A84C; stroke-width: 0.5; fill: none; stroke-dasharray: 2,2; }
+      .guide { stroke: #333333; stroke-width: 0.3; fill: none; }
+      .seal { fill: #ff0001; opacity: 0.9; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#linen)"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="serif" font-size="14" fill="#C9A84C" letter-spacing="4">CIPHER ENVELOPE — TEMPLATE</text>
+  
+  <!-- Envelope outer rectangle (cut line) -->
+  <rect x="100" y="80" width="600" height="440" class="cut" rx="2"/>
+  
+  <!-- Envelope back flap (top) -->
+  <path d="M 100 80 L 400 280 L 700 80" class="fold"/>
+  
+  <!-- Side flaps (fold lines) -->
+  <line x1="100" y1="80" x2="100" y2="520" class="fold"/>
+  <line x1="700" y1="80" x2="700" y2="520" class="fold"/>
+  
+  <!-- Bottom flap fold line -->
+  <line x1="100" y1="520" x2="700" y2="520" class="fold"/>
+  
+  <!-- Inner envelope (liner) - slightly smaller -->
+  <rect x="120" y="100" width="560" height="400" class="guide" rx="1"/>
+  
+  <!-- Seal placement guide (back flap, centered) -->
+  <circle cx="400" cy="200" r="45" class="guide"/>
+  <text x="400" y="195" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#666666">WAX SEAL</text>
+  <text x="400" y="208" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#666666">PLACEMENT</text>
+  
+  <!-- Sigil preview in seal area -->
+  <g transform="translate(400, 200) scale(0.8)">
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#ff0001" stroke-width="2" opacity="0.6"/>
+    <line x1="-30" y1="0" x2="30" y2="0" stroke="#ff0001" stroke-width="2" opacity="0.6"/>
+    <circle cx="0" cy="0" r="3" fill="#ff0001" opacity="0.6"/>
+  </g>
+  
+  <!-- Dimensions -->
+  <text x="400" y="560" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#666666">
+    ENVELOPE SIZE: 220mm × 160mm (A5) | MATERIAL: BLACK LINEN PAPER 120GSM
+  </text>
+  <text x="400" y="580" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#666666">
+    CUT ON DASHED LINES | FOLD ON GOLD DOTTED LINES | SEAL PLACEMENT AS SHOWN
+  </text>
+  
+  <!-- Corner marks -->
+  <g stroke="#C9A84C" stroke-width="0.5" fill="none">
+    <path d="M 90 90 L 110 90 M 90 90 L 90 110"/>
+    <path d="M 690 90 L 710 90 M 710 90 L 710 110"/>
+    <path d="M 90 510 L 110 510 M 90 510 L 90 490"/>
+    <path d="M 690 510 L 710 510 M 710 510 L 710 490"/>
+  </g>
+</svg>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RED ARCHITECTURE | The Sovereign Identity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Big+Shoulders+Stencil:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; overflow-x: hidden; cursor: crosshair; }
+        .stencil { font-family: 'Big Shoulders Stencil', cursive; }
+        .cinzel { font-family: 'Cinzel', serif; }
+        .brand-red { color: #ff0001; }
+        .bg-brand-red { background-color: #ff0001; }
+        
+        .void-bg {
+            background: radial-gradient(circle at center, #1a0000 0%, #000 70%);
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            transition: all 2s ease;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+        .god-mode { animation: heartbeat 3s infinite ease-in-out; }
+
+        .sovereign-border {
+            border: 1px solid rgba(255, 0, 1, 0.2);
+            transition: all 0.5s ease;
+        }
+        .sovereign-border:hover {
+            border-color: #ff0001;
+            box-shadow: 0 0 30px rgba(255, 0, 1, 0.3);
+            background: rgba(255, 0, 1, 0.03);
+        }
+
+        .glitch {
+            position: relative;
+            display: inline-block;
+        }
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute; left: 2px; text-shadow: -2px 0 #ff0001;
+            top: 0; color: white; background: black; overflow: hidden;
+            clip: rect(0, 900px, 0, 0); animation: glitch-anim 2s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% { clip: rect(10px, 9999px, 20px, 0); }
+            20% { clip: rect(30px, 9999px, 40px, 0); }
+            100% { clip: rect(80px, 9999px, 90px, 0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <div class="void-bg" id="void"></div>
+
+    <nav class="p-8 flex justify-between items-center relative z-10">
+        <div class="text-3xl font-bold stencil tracking-[0.5em] brand-red glitch" data-text="RED ARCHITECTURE">RED ARCHITECTURE</div>
+        <div class="space-x-12 text-[10px] uppercase tracking-[0.6em] font-light opacity-40">
+            <a href="#philosophy" class="hover:text-red-600 transition duration-1000">Philosophy</a>
+            <a href="#treasury" class="hover:text-red-600 transition duration-1000">The Treasury</a>
+            <a href="#apply" class="hover:text-red-600 transition duration-1000">Application</a>
+        </div>
+    </nav>
+
+    <header class="py-40 px-6 text-center relative">
+        <h1 class="text-7xl md:text-9xl cinzel font-bold mb-8 tracking-tighter leading-none">
+            THE <span class="brand-red italic">SOVEREIGN</span> <br>
+            <span class="stencil text-5xl md:text-7xl block mt-6 opacity-60 tracking-widest">IDENTITY PROTOCOL</span>
+        </h1>
+        <div class="w-24 h-px bg-brand-red mx-auto mb-12 opacity-30"></div>
+        <p class="text-gray-500 max-w-3xl mx-auto text-xl font-light italic leading-relaxed opacity-60">
+            "We do not build brands. We engineer Dominance."
+        </p>
+        <div class="mt-20">
+            <a href="#apply" class="px-16 py-5 border border-brand-red text-brand-red uppercase tracking-[0.5em] text-xs font-bold hover:bg-brand-red hover:text-white transition-all duration-1000">
+                Request Alignment
+            </a>
+        </div>
+    </header>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="py-32 px-6 bg-black bg-opacity-80">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+            <div class="text-left">
+                <h2 class="text-4xl cinzel brand-red mb-8 tracking-widest uppercase">The Architecture of Power</h2>
+                <p class="text-gray-400 leading-relaxed font-light mb-8 opacity-80">
+                    The modern market is a noise machine. We do not shout; we vibrate at a frequency that forces the subconscious to obey.
+                </p>
+            </div>
+            <div class="sovereign-border p-12 rounded-full aspect-square flex items-center justify-center text-center god-mode">
+                <div class="cinzel text-2xl brand-red tracking-widest italic">NON-NEGOTIABLE RESONANCE</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Treasury: Relics -->
+    <section id="treasury" class="py-40 px-6">
+        <div class="text-center mb-24">
+            <h2 class="text-5xl cinzel brand-red mb-4 tracking-widest uppercase">The Treasury</h2>
+            <p class="text-gray-500 text-xs uppercase tracking-[0.5em] italic">Limited Relics // Subconscious Anchors</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-24 max-w-6xl mx-auto">
+            <!-- Relic 01 -->
+            <div class="sovereign-border p-1 rounded-3xl overflow-hidden group">
+                <div class="aspect-square bg-zinc-900 flex items-center justify-center relative overflow-hidden">
+                    <!-- Blender Render Placeholder -->
+                    <div class="absolute inset-0 flex items-center justify-center text-gray-800 stencil text-4xl opacity-20 group-hover:opacity-40 transition duration-1000">
+                        [ 3D OBSIDIAN HEART ]
+                    </div>
+                    <div class="absolute bottom-4 right-4 px-3 py-1 text-[9px] bg-brand-red text-white uppercase tracking-widest font-bold">Sovereign</div>
+                </div>
+                <div class="p-8 text-left">
+                    <h3 class="cinzel text-2xl mb-4 brand-red tracking-widest">Relic 01: The Core of Desire</h3>
+                    <p class="text-gray-400 font-light italic text-sm leading-relaxed mb-6">
+                        Forged in Blender's void and mapped in Inkscape's geometry. This artifact anchors the owner's will to the material world. It does not just attract wealth; it commands it.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs uppercase tracking-widest text-gray-600">Valuation: $7,500</span>
+                        <a href="#apply" class="text-xs uppercase tracking-widest brand-red font-bold hover:underline">Claim Ownership &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Relic 02 -->
+            <div class="sovereign-border p-1 rounded-3xl overflow-hidden group">
+                <div class="aspect-square bg-zinc-900 flex items-center justify-center relative overflow-hidden">
+                    <!-- Blender Render Placeholder -->
+                    <div class="absolute inset-of flex items-center justify-center text-gray-800 stencil text-4xl opacity-20 group-hover:opacity-40 transition duration-1000">
+                        [ CHROME MONOLITH ]
+                    </div>
+                    <div class="absolute bottom-4 right-4 px-3 py-1 text-[9px] bg-gray-700 text-white uppercase tracking-widest font-bold">Anchored</div>
+                </div>
+                <div class="p-8 text-left">
+                    <h3 class="cinzel text-2xl mb-4 brand-red tracking-widest">Relic 02: The Pillar of Silence</h3>
+                    <p class="text-gray-400 font-light italic text-sm leading-relaxed mb-6">
+                        An architecture of absolute stillness. This piece was designed to remove the noise of the ego, leaving only the raw power of the subconscious.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs uppercase tracking-widest text-gray-600">Status: Sold to Sovereign 04</span>
+                        <span class="text-xs uppercase tracking-widest opacity-30">Unavailable</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Portal -->
+    <section id="apply" class="py-40 px-6 relative">
+        <div class="max-w-2xl mx-auto text-center relative z-10">
+            <h2 class="text-5xl cinzel brand-red mb-6 tracking-widest uppercase">Alignment Portal</h2>
+            <p class="text-gray-500 mb-16 italic font-light">Access is not granted. It is recognized.</p>
+            <div class="glass-mirror p-10 rounded-3xl text-left sovereign-border">
+                <form onsubmit="submitApplication(event)" class="space-y-8">
+                    <div class="flex flex-col">
+                        <label class="text-[10px] uppercase tracking-widest text-gray-600 block mb-2">Entity Name</label>
+                        <input id="userName" type="text" required class="w-full bg-transparent border-b border-gray-800 p-3 text-white focus:outline-none focus:border-brand-red transition-all">
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="text-[10px] uppercase tracking-widest text-gray-600 block mb-2">Desired resonance level</label>
+                        <select id="level" class="w-full bg-transparent border-b border-gray-800 p-3 text-white focus:outline-none focus:border-brand-red transition-all appearance-none">
+                            <option value="emerging" class="bg-black">Emerging</option>
+                            <option value="established" class="bg-black">Established</option>
+                            <option value="sovereign" class="bg-black">Sovereign</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="text-[10px] uppercase tracking-widest text-gray-600 block mb-2">Why you?</label>
+                        <textarea id="reason" required rows="4" class="w-full bg-transparent border border-gray-800 p-3 text-white focus:outline-none focus:border-brand-red transition-all rounded-lg"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-5 bg-brand-red text-white uppercase tracking-[0.5em] text-xs font-bold hover:bg-red-700 transition-all duration-500">
+                        Submit for Review
+                    </button>
+                </form>
+                <div id="appResponse" class="hidden mt-8 text-center cinzel italic text-gray-400 animate-pulse">
+                    The void is considering your request...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 border-t border-gray-900 text-center">
+        <div class="text-sm cinzel brand-red tracking-[0.8em] mb-4">RED ARCHITECTURE</div>
+        <p class="text-gray-700 text-[9px] uppercase tracking-widest italic">Sovereign Identity Protocol &bull; &copy; 2026</p>
+    </footer>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const voidBg = document.getElementById('void');
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            voidBg.style.background = `radial-gradient(circle at ${x}% ${y}%, #2a0000 0%, #000 70%)`;
+        });
+
+        function submitApplication(e) {
+            e.preventDefault();
+            const response = document.getElementById('appResponse');
+            response.classList.remove('hidden');
+            setTimeout(() => {
+                response.innerText = "Application transmitted. Wait for the signal.";
+                setTimeout(() => {
+                    alert("Your frequency has been recorded.");
+                    document.querySelector('form').reset();
+                    response.classList.add('hidden');
+                }, 3000);
+            }, 4000);
+        }
+    </script>
+</body>
+</html>

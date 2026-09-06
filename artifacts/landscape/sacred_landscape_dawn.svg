@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <!-- Dawn sky -->
+    <linearGradient id="skyDawn" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d0f0f;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#4a2020;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#C9A84C;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#ff0001;stop-opacity:0.3" />
+    </linearGradient>
+
+    <!-- Dawn light burst -->
+    <radialGradient id="dawnBurst" cx="50%" cy="70%" r="60%">
+      <stop offset="0%" style="stop-color:#C9A84C;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#ff0001;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#000;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Mountain dawn -->
+    <linearGradient id="mountainDawn" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#C9A84C;stop-opacity:0.8" />
+      <stop offset="60%" style="stop-color:#8B0000;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#ff0001;stop-opacity:0.2" />
+    </linearGradient>
+
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Soft shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
+      <feOffset dx="2" dy="2" result="offsetblur" />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dawn sky -->
+  <rect width="1200" height="1600" fill="url(#skyDawn)" />
+
+  <!-- Dawn light burst -->
+  <rect width="1200" height="1600" fill="url(#dawnBurst)" opacity="0.5" />
+
+  <!-- Sacred geometry - sunrise aligned -->
+  <g opacity="0.05" stroke="#C9A84C" stroke-width="2" fill="none">
+    <circle cx="600" cy="900" r="400" />
+    <circle cx="600" cy="900" r="350" />
+    <circle cx="600" cy="900" r="300" />
+    <line x1="200" y1="900" x2="1000" y2="900" />
+    <line x1="600" y1="500" x2="600" y2="1300" />
+  </g>
+
+  <!-- Distant mountains dawn -->
+  <path d="M0,800 L200,600 L400,750 L600,550 L800,700 L1000,500 L1200,650 L1200,1600 L0,1600 Z"
+        fill="url(#mountainDawn)" opacity="0.6" />
+
+  <!-- Distant mountains layer 2 -->
+  <path d="M0,900 L150,700 L350,850 L550,650 L750,800 L950,600 L1200,750 L1200,1600 L0,1600 Z"
+        fill="#2d0a0a" opacity="0.5" />
+
+  <!-- Mid-ground hills dawn -->
+  <path d="M0,1100 C300,1000 500,1050 800,950 C1000,900 1100,950 1200,1000 L1200,1600 L0,1600 Z"
+        fill="#4a1515" opacity="0.7" />
+
+  <!-- Main hill dawn -->
+  <path d="M0,1300 C200,1150 400,1200 600,1100 C800,1000 1000,1050 1200,1150 L1200,1600 L0,1600 Z"
+        fill="#1a0505" opacity="0.8" />
+
+  <!-- Golden peak dawn -->
+  <path d="M550,1100 C580,1040 620,1040 650,1100 C620,1070 580,1070 550,1100 Z"
+        fill="#C9A84C" opacity="0.95" filter="url(#glow)" />
+
+  <!-- Secondary peak -->
+  <path d="M750,1150 C770,1100 790,1100 810,1150 C790,1130 770,1130 750,1150 Z"
+        fill="#ff0001" opacity="0.7" filter="url(#glow)" />
+
+  <!-- Foreground field dawn -->
+  <path d="M0,1400 C300,1350 600,1380 900,1320 C1000,1300 1100,1320 1200,1350 L1200,1600 L0,1600 Z"
+        fill="#0a0000" opacity="0.9" />
+
+  <!-- Field texture dawn -->
+  <g stroke="#C9A84C" stroke-width="0.5" opacity="0.2">
+    <line x1="0" y1="1420" x2="1200" y2="1380" />
+    <line x1="0" y1="1440" x2="1200" y2="1400" />
+    <line x1="0" y1="1460" x2="1200" y2="1420" />
+    <line x1="0" y1="1480" x2="1200" y2="1440" />
+    <line x1="0" y1="1500" x2="1200" y2="1460" />
+  </g>
+
+  <!-- Foreground branch dawn -->
+  <g filter="url(#shadow)">
+    <path d="M0,250 Q150,300 300,200 T500,150"
+          fill="none" stroke="#0a0000" stroke-width="12" stroke-linecap="round" />
+    <path d="M0,250 Q150,300 300,200 T500,150"
+          fill="none" stroke="#1a0505" stroke-width="8" stroke-linecap="round" />
+  </g>
+
+  <!-- Leaves dawn - gold/red morning light -->
+  <g>
+    <circle cx="180" cy="280" r="6" fill="#C9A84C" opacity="0.95" filter="url(#glow)" />
+    <circle cx="220" cy="260" r="5" fill="#ff0001" opacity="0.9" />
+    <circle cx="260" cy="245" r="7" fill="#8B0000" opacity="0.85" />
+    <circle cx="300" cy="230" r="5" fill="#C9A84C" opacity="0.95" />
+    <circle cx="340" cy="210" r="6" fill="#ff0001" opacity="0.9" />
+    <circle cx="380" cy="195" r="4" fill="#C9A84C" opacity="0.95" />
+    <circle cx="420" cy="180" r="5" fill="#8B0000" opacity="0.85" />
+    <circle cx="460" cy="165" r="6" fill="#ff0001" opacity="0.9" />
+    <circle cx="200" cy="300" r="4" fill="#8B0000" opacity="0.8" />
+    <circle cx="240" cy="285" r="5" fill="#C9A84C" opacity="0.9" />
+    <circle cx="280" cy="270" r="4" fill="#ff0001" opacity="0.85" />
+    <circle cx="320" cy="255" r="6" fill="#8B0000" opacity="0.9" />
+    <circle cx="360" cy="238" r="5" fill="#C9A84C" opacity="0.95" />
+    <circle cx="400" cy="220" r="4" fill="#ff0001" opacity="0.85" />
+    <circle cx="440" cy="205" r="5" fill="#8B0000" opacity="0.9" />
+    <circle cx="170" cy="290" r="5" fill="#ff0001" opacity="0.85" />
+    <circle cx="250" cy="275" r="6" fill="#C9A84C" opacity="0.95" />
+    <circle cx="290" cy="258" r="4" fill="#8B0000" opacity="0.8" />
+    <circle cx="330" cy="242" r="5" fill="#ff0001" opacity="0.9" />
+    <circle cx="370" cy="225" r="6" fill="#C9A84C" opacity="0.95" />
+    <circle cx="410" cy="208" r="4" fill="#8B0000" opacity="0.85" />
+    <circle cx="450" cy="190" r="5" fill="#ff0001" opacity="0.9" />
+  </g>
+
+  <!-- Light rays -->
+  <g opacity="0.1">
+    <polygon points="600,1600 400,800 800,800" fill="#C9A84C" />
+    <polygon points="600,1600 500,900 700,900" fill="#ff0001" opacity="0.5" />
+  </g>
+
+  <!-- Signature -->
+  <text x="1140" y="1580" font-family="Cinzel, serif" font-size="14" fill="#C9A84C" opacity="0.6" text-anchor="end">RED ARCHITECTURE — DAWN</text>
+</svg>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <!-- Night sky -->
+    <linearGradient id="skyNight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#000;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0a0000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a0505;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Moon glow -->
+    <radialGradient id="moonGlow" cx="75%" cy="15%" r="20%">
+      <stop offset="0%" style="stop-color:#C9A84C;stop-opacity:0.9" />
+      <stop offset="40%" style="stop-color:#ff0001;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#000;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Mountain night -->
+    <linearGradient id="mountainNight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0505;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#0a0000;stop-opacity:0.6" />
+    </linearGradient>
+
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Stars -->
+    <filter id="starGlow">
+      <feGaussianBlur stdDeviation="1" />
+    </filter>
+  </defs>
+
+  <!-- Night sky -->
+  <rect width="1200" height="1600" fill="url(#skyNight)" />
+
+  <!-- Moon glow -->
+  <rect width="1200" height="1600" fill="url(#moonGlow)" opacity="0.4" />
+
+  <!-- Stars -->
+  <g fill="#C9A84C" opacity="0.7">
+    <circle cx="200" cy="150" r="1.5" filter="url(#starGlow)" />
+    <circle cx="450" cy="80" r="1" filter="url(#starGlow)" />
+    <circle cx="700" cy="200" r="1.5" filter="url(#starGlow)" />
+    <circle cx="850" cy="120" r="1" filter="url(#starGlow)" />
+    <circle cx="1000" cy="180" r="1.5" filter="url(#starGlow)" />
+    <circle cx="300" cy="250" r="1" filter="url(#starGlow)" />
+    <circle cx="550" cy="300" r="1.5" filter="url(#starGlow)" />
+    <circle cx="900" cy="280" r="1" filter="url(#starGlow)" />
+    <circle cx="150" cy="350" r="1" filter="url(#starGlow)" />
+    <circle cx="1050" cy="320" r="1.5" filter="url(#starGlow)" />
+    <circle cx="400" cy="400" r="1" filter="url(#starGlow)" />
+    <circle cx="750" cy="380" r="1.5" filter="url(#starGlow)" />
+  </g>
+
+  <!-- Moon -->
+  <circle cx="900" cy="150" r="50" fill="#C9A84C" opacity="0.9" filter="url(#glow)" />
+  <circle cx="900" cy="150" r="42" fill="#1a0505" opacity="0.3" />
+
+  <!-- Distant mountains night -->
+  <path d="M0,900 L200,700 L400,850 L600,650 L800,800 L1000,600 L1200,750 L1200,1600 L0,1600 Z"
+        fill="url(#mountainNight)" opacity="0.8" />
+
+  <!-- Sacred geometry overlay - moon aligned -->
+  <g opacity="0.04" stroke="#ff0001" stroke-width="1.5" fill="none">
+    <circle cx="900" cy="150" r="180" />
+    <circle cx="900" cy="150" r="140" />
+    <line x1="720" y1="150" x2="1080" y2="150" />
+    <line x1="900" y1="-30" x2="900" y2="330" />
+  </g>
+
+  <!-- Mid-ground hills night -->
+  <path d="M0,1100 C300,1000 500,1050 800,950 C1000,900 1100,950 1200,1000 L1200,1600 L0,1600 Z"
+        fill="#0a0000" opacity="0.9" />
+
+  <!-- Main hill dark silhouette -->
+  <path d="M0,1300 C200,1150 400,1200 600,1100 C800,1000 1000,1050 1200,1150 L1200,1600 L0,1600 Z"
+        fill="#050000" opacity="0.95" />
+
+  <!-- Red signal peak -->
+  <path d="M580,1100 C600,1060 620,1060 640,1100 C620,1080 600,1080 580,1100 Z"
+        fill="#ff0001" opacity="0.95" filter="url(#glow)" />
+
+  <!-- Foreground field night -->
+  <path d="M0,1400 C300,1350 600,1380 900,1320 C1000,1300 1100,1320 1200,1350 L1200,1600 L0,1600 Z"
+        fill="#000" opacity="0.95" />
+
+  <!-- Field lines -->
+  <g stroke="#ff0001" stroke-width="0.5" opacity="0.1">
+    <line x1="0" y1="1420" x2="1200" y2="1380" />
+    <line x1="0" y1="1440" x2="1200" y2="1400" />
+    <line x1="0" y1="1460" x2="1200" y2="1420" />
+    <line x1="0" y1="1480" x2="1200" y2="1440" />
+  </g>
+
+  <!-- Foreground branch night -->
+  <g filter="url(#shadow)">
+    <path d="M0,300 Q150,350 300,250 T500,200"
+          fill="none" stroke="#000" stroke-width="12" stroke-linecap="round" />
+    <path d="M0,300 Q150,350 300,250 T500,200"
+          fill="none" stroke="#0a0000" stroke-width="8" stroke-linecap="round" />
+  </g>
+
+  <!-- Leaves night - red/gold accents -->
+  <g>
+    <circle cx="180" cy="330" r="5" fill="#C9A84C" opacity="0.7" />
+    <circle cx="220" cy="310" r="4" fill="#ff0001" opacity="0.75" />
+    <circle cx="260" cy="295" r="6" fill="#8B0000" opacity="0.7" />
+    <circle cx="300" cy="280" r="4" fill="#C9A84C" opacity="0.8" />
+    <circle cx="340" cy="260" r="5" fill="#ff0001" opacity="0.75" />
+    <circle cx="380" cy="245" r="4" fill="#C9A84C" opacity="0.7" />
+    <circle cx="420" cy="230" r="5" fill="#8B0000" opacity="0.75" />
+    <circle cx="460" cy="215" r="4" fill="#ff0001" opacity="0.7" />
+    <circle cx="200" cy="350" r="4" fill="#8B0000" opacity="0.65" />
+    <circle cx="240" cy="335" r="5" fill="#C9A84C" opacity="0.75" />
+    <circle cx="280" cy="320" r="4" fill="#ff0001" opacity="0.7" />
+    <circle cx="320" cy="305" r="5" fill="#8B0000" opacity="0.75" />
+    <circle cx="360" cy="288" r="4" fill="#C9A84C" opacity="0.8" />
+    <circle cx="400" cy="270" r="5" fill="#ff0001" opacity="0.7" />
+    <circle cx="440" cy="255" r="4" fill="#8B0000" opacity="0.75" />
+    <circle cx="170" cy="340" r="4" fill="#ff0001" opacity="0.7" />
+    <circle cx="250" cy="325" r="5" fill="#C9A84C" opacity="0.8" />
+    <circle cx="290" cy="308" r="4" fill="#8B0000" opacity="0.7" />
+    <circle cx="330" cy="292" r="5" fill="#ff0001" opacity="0.75" />
+    <circle cx="370" cy="275" r="4" fill="#C9A84C" opacity="0.7" />
+    <circle cx="410" cy="258" r="5" fill="#8B0000" opacity="0.75" />
+    <circle cx="450" cy="240" r="4" fill="#ff0001" opacity="0.7" />
+  </g>
+
+  <!-- Signature -->
+  <text x="1140" y="1580" font-family="Cinzel, serif" font-size="14" fill="#C9A84C" opacity="0.5" text-anchor="end">RED ARCHITECTURE — NIGHT</text>
+</svg>
