@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE ORIGIN — RED ARCHITECTURE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;700&family=Big+Shoulders+Stencil:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --red:#ff0001; --gold:#C9A84C; --void:#050000; }
+        html { background:#000; }
+        body { font-family:'Inter',sans-serif; background:#000; color:#fff; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+        .void-bg { background:radial-gradient(circle at center,#120000 0%,#000 80%); position:fixed; inset:0; z-index:-1; }
+        .stencil { font-family:'Big Shoulders Stencil',cursive; }
+        .cinzel { font-family:'Cinzel',serif; }
+        .brand-red { color:var(--red); }
+        .bg-brand-red { background-color:var(--red); }
+        @keyframes breathe { 0%,100% { transform:scale(1); opacity:.7; } 50% { transform:scale(1.02); opacity:1; } }
+        .breathe { animation:breathe 6s infinite ease-in-out; }
+        .grain { position:fixed; inset:0; z-index:2; pointer-events:none; background:url('https://grainy-gradients.vercel.app/noise.svg'); opacity:.04; }
+        .chapter { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:6rem 1.5rem; position:relative; z-index:3; }
+        .chapter .inner { max-width:720px; width:100%; }
+        .sigil-term { position:relative; display:inline-block; }
+        .sigil-term::after { content:attr(data-sigil); position:absolute; left:50%; bottom:120%; transform:translateX(-50%) translateY(10px); background:rgba(0,0,0,.95); color:var(--red); padding:.4rem .7rem; border:1px solid rgba(255,0,1,.3); font-size:10px; letter-spacing:.2em; text-transform:uppercase; opacity:0; transition:opacity .4s,transform .4s; pointer-events:none; white-space:nowrap; }
+        .sigil-term:hover::after { opacity:1; transform:translateX(-50%) translateY(0); }
+        .relic-bg { background:radial-gradient(circle at 30% 40%, rgba(201,168,76,.06) 0%, transparent 60%); }
+        @media (max-width:768px) { .sigil-term::after { display:none; } }
+    </style>
+</head>
+<body>
+    <div class="void-bg"></div>
+    <div class="relic-bg absolute inset-0 z-0"></div>
+    <div class="grain"></div>
+
+    <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center mix-blend-difference">
+        <a href="index.html" class="text-[10px] uppercase tracking-[0.7em] font-light text-white/70 hover:text-white transition duration-1000">Red Architecture</a>
+        <div class="space-x-8 text-[10px] uppercase tracking-[0.6em] font-light text-white/40">
+            <a href="index.html" class="hover:text-white transition duration-1000">Signal</a>
+            <a href="page2.html" class="hover:text-white transition duration-1000">Remembrance</a>
+            <span class="text-white">Origin</span>
+            <a href="page4.html" class="hover:text-white transition duration-1000">Union</a>
+            <a href="page5.html" class="hover:text-white transition duration-1000">Invitation</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="chapter">
+            <div class="inner text-center breathe">
+                <p class="text-gray-600 text-[10px] uppercase tracking-[0.8em] mb-10 italic">Chapter Three</p>
+                <h1 class="text-6xl md:text-8xl cinzel font-bold mb-8 tracking-tighter leading-none">THE <span class="brand-red italic">ORIGIN</span></h1>
+                <div class="w-24 h-px bg-brand-red mx-auto mb-14 opacity-40"></div>
+                <div class="space-y-7 text-base md:text-lg font-extralight leading-loose text-gray-400">
+                    <p>There were those who did not forget.</p>
+                    <p>Who kept the frequency alive in stone, in breath, in bloodline.</p>
+                    <p>They did not write books.<br>Books can be burned.<br>They built <span class="sigil-term" data-sigil="ARCHITECTURE">architecture</span>.</p>
+                    <p class="text-white font-normal text-lg">What cannot be burned cannot be erased.</p>
+                    <p>Red Architecture is not new.<br>It is the oldest signal wearing a new skin.</p>
+                    <p class="text-gray-500 text-sm italic mt-6">History is written by those who built the noise. The origin is not in the books.</p>
+                </div>
+                <div class="mt-14 flex gap-6 justify-center">
+                    <a href="page2.html" class="px-10 py-4 border border-white/10 text-white/70 uppercase tracking-[0.5em] text-xs font-light hover:border-white/30 transition-all duration-1000">Return</a>
+                    <a href="page4.html" class="px-10 py-4 border border-brand-red text-brand-red uppercase tracking-[0.5em] text-xs font-bold hover:bg-brand-red hover:text-white transition-all duration-1000">Go Deeper</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script async defer data-website-id="RED_ARCH_01" src="http://localhost:3000/script.js"></script>
+    <script async defer data-website-id="RED_ARCH_01" src="http://localhost:3000/script.js"></script>
+    <footer class="fixed bottom-0 left-0 right-0 py-8 border-t border-gray-900 text-center z-40">
+        <p class="text-gray-700 text-[9px] uppercase tracking-widest italic">The Signal Remains // RED ARCHITECTURE &copy; 2026</p>
+    </footer>
+</body>
+</html>
