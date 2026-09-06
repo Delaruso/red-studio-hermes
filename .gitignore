@@ -1,1 +1,26 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Docker/data
+analytics/postgres-data/
+analytics/umami-data/
 analytics/.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large/reference data not needed for site
+Black_Library/
+tools/
+artifacts/3d_models/
+artifacts/audio/
+story/
+logs/
+prototypes/
+Project_Logs/
