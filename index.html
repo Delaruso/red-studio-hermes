@@ -1,88 +1,950 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RED STUDIO | Digital Art Gallery</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Big+Shoulders+Stencil:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #ffffff; }
-        .stencil { font-family: 'Big Shoulders Stencil', cursive; }
-        .brand-red { color: #ff0001; }
-        .bg-brand-red { background-color: #ff0001; }
-        .border-brand-red { border-color: #ff0001; }
-        .gradient-bg { background: linear-gradient(180deg, #0a0a0a 0%, #1a0000 100%); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RED STUDIO — Psychological Branding &amp; Emotional Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #FF0001;
+  --red-deep: #CC0001;
+  --red-soft: rgba(255,0,1,.12);
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --cream: #F5E6CC;
+  --cream-muted: rgba(245,230,204,.55);
+  --cream-faint: rgba(245,230,204,.22);
+  --burgundy: #6B2D3A;
+  --forest: #1E3A2F;
+  --warm-dark: #14100C;
+  --warm-darker: #0E0B08;
+  --warm-card: rgba(20,16,12,.6);
+  --warm-border: rgba(201,168,76,.12);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html {
+  background: var(--warm-darker);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--warm-dark);
+  color: var(--cream);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ── Ambient atmosphere ── */
+.ambient {
+  position: fixed; inset: 0; pointer-events: none; z-index: -1; overflow: hidden;
+}
+.ambient .blob {
+  position: absolute; border-radius: 50%; filter: blur(120px); opacity: .5;
+}
+.ambient .b1 {
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(255,0,1,.09), transparent 70%);
+  top: -300px; right: -250px;
+  animation: floatA 24s ease-in-out infinite;
+}
+.ambient .b2 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(201,168,76,.06), transparent 70%);
+  bottom: -200px; left: -200px;
+  animation: floatB 30s ease-in-out infinite;
+}
+.ambient .b3 {
+  width: 450px; height: 450px;
+  background: radial-gradient(circle, rgba(107,45,58,.06), transparent 70%);
+  top: 30%; left: 60%;
+  animation: floatC 22s ease-in-out infinite;
+}
+@keyframes floatA {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(50px,-30px) scale(1.08); }
+  66% { transform: translate(-30px,40px) scale(.92); }
+}
+@keyframes floatB {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-60px,35px) scale(1.12); }
+}
+@keyframes floatC {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(35px,50px) scale(.9); }
+  66% { transform: translate(-45px,-30px) scale(1.05); }
+}
+
+/* Grain overlay */
+.grain {
+  position: fixed; inset: 0; pointer-events: none;
+  background: url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: .03; z-index: 9998; mix-blend-mode: overlay;
+}
+
+/* Typography */
+.sg { font-family: 'Space Grotesk', sans-serif; }
+.cg { font-family: 'Cormorant Garamond', serif; }
+
+/* ── Navigation ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.2rem 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all .4s ease;
+  background: linear-gradient(180deg, rgba(14,11,8,.88) 0%, rgba(14,11,8,0) 100%);
+}
+.nav.scrolled {
+  background: rgba(14,11,8,.94);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(201,168,76,.06);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: .7rem;
+  text-decoration: none;
+}
+.nav-logo-mark {
+  width: 32px; height: 32px;
+  transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.nav-logo:hover .nav-logo-mark { transform: scale(1.12); filter: brightness(1.2); }
+.nav-brand {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600; font-size: 12px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--cream); transition: color .3s;
+}
+.nav-logo:hover .nav-brand { color: var(--red); }
+
+.nav-links {
+  display: flex; align-items: center; gap: 2.2rem;
+}
+.nav-link {
+  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--cream-muted); text-decoration: none;
+  position: relative; padding: 0.2rem 0; transition: color .3s;
+}
+.nav-link::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 0; height: 1px; background: var(--red);
+  transition: width .4s cubic-bezier(.34,1.56,.64,1);
+}
+.nav-link:hover { color: var(--cream); }
+.nav-link:hover::after { width: 100%; }
+
+.nav-cta {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px; letter-spacing: .15em; text-transform: uppercase;
+  padding: .55rem 1.4rem;
+  background: var(--red); color: var(--cream);
+  text-decoration: none; border: none; cursor: pointer;
+  transition: all .35s cubic-bezier(.34,1.56,.64,1);
+  font-weight: 500;
+}
+.nav-cta:hover {
+  background: var(--red-deep);
+  box-shadow: 0 0 30px rgba(255,0,1,.22);
+  transform: translateY(-1px);
+}
+
+.mobile-toggle {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px; background: none; border: none;
+}
+.mobile-toggle span {
+  width: 22px; height: 1.5px; background: var(--cream);
+  transition: all .3s;
+}
+@media (max-width: 768px) {
+  .mobile-toggle { display: flex; }
+  .nav-links {
+    position: fixed; top: 0; right: 0; bottom: 0;
+    width: 280px;
+    background: rgba(14,11,8,.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column; justify-content: center;
+    padding: 2rem; gap: 1.8rem;
+    transform: translateX(100%);
+    transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+  }
+  .nav-links.open { transform: translateX(0); }
+  .nav-links .nav-link { font-size: 13px; }
+  .nav-cta { width: 100%; text-align: center; }
+}
+
+/* ── Reveal animation ── */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(28px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .8s ease, transform .8s cubic-bezier(.34,1.56,.64,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Hero ── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 9rem 2rem 6rem;
+  position: relative;
+}
+.hero-inner { max-width: 1000px; margin: 0 auto; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: .6rem;
+  padding: .4rem 1.1rem;
+  border: 1px solid rgba(201,168,76,.18);
+  font-size: 10px; letter-spacing: .25em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 2.5rem;
+  animation: fadeUp .8s ease-out both;
+}
+.hero-badge .dot {
+  width: 5px; height: 5px; background: var(--red);
+  border-radius: 50%; animation: pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: .4; }
+  50% { opacity: 1; }
+}
+
+.hero-illustration {
+  width: clamp(280px, 45vw, 500px);
+  height: auto;
+  margin: 0 auto 2.8rem;
+  animation: fadeUp .8s ease-out .05s both;
+  filter: drop-shadow(0 0 60px rgba(255,0,1,.1));
+  position: relative;
+}
+.hero-illustration::after {
+  content: '';
+  position: absolute; inset: -20px;
+  background: radial-gradient(ellipse, rgba(255,0,1,.08), transparent 60%);
+  pointer-events: none;
+}
+
+.hero-title-block { animation: fadeUp .8s ease-out .15s both; }
+
+.hero-eyebrow {
+  font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 1.2rem;
+}
+.hero-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3.2rem, 9vw, 6.5rem);
+  font-weight: 700; line-height: .92; letter-spacing: -.04em;
+  color: var(--cream); margin-bottom: 1.5rem;
+}
+.hero-title .r { color: var(--red); }
+.hero-title .r::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(255,0,1,.1) 0%, transparent 50%, rgba(255,0,1,.05) 100%);
+  animation: shimmer 7s ease-in-out infinite; background-size: 200% 200%;
+}
+@keyframes shimmer {
+  0%,100% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+}
+
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+  font-style: italic;
+  color: var(--cream-muted); line-height: 1.6;
+  max-width: 560px; margin: 0 auto 2.5rem;
+  animation: fadeUp .8s ease-out .25s both;
+}
+
+.hero-divider {
+  width: 44px; height: 2px; background: var(--red);
+  margin: 0 auto 1.8rem; opacity: .45;
+  animation: fadeUp .8s ease-out .3s both;
+}
+
+.hero-actions {
+  display: flex; gap: .9rem; justify-content: center;
+  flex-wrap: wrap; animation: fadeUp .8s ease-out .35s both;
+}
+
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .78rem 2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: .2em; text-transform: uppercase;
+  text-decoration: none;
+  transition: all .4s cubic-bezier(.34,1.56,.64,1);
+  cursor: pointer; border: none;
+}
+.btn-primary {
+  background: var(--red); color: var(--cream);
+}
+.btn-primary:hover {
+  background: var(--red-deep);
+  box-shadow: 0 0 40px rgba(255,0,1,.25);
+  transform: translateY(-2px);
+}
+.btn-primary .arrow { transition: transform .3s; }
+.btn-primary:hover .arrow { transform: translateX(4px); }
+
+.btn-outline {
+  background: transparent; color: var(--gold);
+  border: 1px solid rgba(201,168,76,.25);
+}
+.btn-outline:hover {
+  background: rgba(201,168,76,.05);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.hero-scroll-cue {
+  position: absolute; bottom: 2.5rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: .5rem;
+  animation: scrollBounce 2.5s ease-in-out infinite;
+}
+.hero-scroll-cue span {
+  font-size: 9px; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--cream-muted); opacity: .4;
+}
+.hero-scroll-cue .line {
+  width: 1px; height: 36px;
+  background: linear-gradient(180deg, var(--gold), transparent);
+}
+@keyframes scrollBounce {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ── Sections ── */
+.section {
+  padding: 6rem 2.5rem;
+  max-width: 1280px; margin: 0 auto;
+}
+.section-header {
+  text-align: center; margin-bottom: 3.5rem;
+}
+.section-eyebrow {
+  font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .9rem;
+  display: inline-flex; align-items: center; gap: .6rem; justify-content: center;
+}
+.section-eyebrow::before {
+  content: ''; width: 26px; height: 1px; background: var(--gold);
+}
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 600; line-height: 1.12; letter-spacing: -.02em;
+  margin-bottom: 1.1rem; color: var(--cream);
+}
+.section-title .br { color: var(--red); font-style: italic; }
+.section-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; line-height: 1.7;
+  color: var(--cream-muted);
+  max-width: 540px; margin: 0 auto; font-style: italic;
+}
+
+/* ── Illustration + Story section ── */
+.story-section {
+  padding: 4rem 2.5rem 6rem;
+  max-width: 1280px; margin: 0 auto;
+}
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem; align-items: center;
+}
+@media (max-width: 900px) { .story-grid { grid-template-columns: 1fr; } }
+
+.story-illustration {
+  position: relative;
+}
+.story-illustration img,
+.story-illustration svg {
+  width: 100%; max-width: 460px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 40px rgba(255,0,1,.08));
+}
+.story-glow {
+  position: absolute; inset: -30px;
+  background: radial-gradient(ellipse, rgba(255,0,1,.07), transparent 60%);
+  pointer-events: none;
+}
+
+.story-text { padding: 0 1rem; }
+.story-label {
+  font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: .6rem;
+}
+.story-label::before {
+  content: ''; width: 20px; height: 1px; background: var(--red);
+}
+.story-heading {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 600; line-height: 1.15; letter-spacing: -.02em;
+  color: var(--cream); margin-bottom: 1.2rem;
+}
+.story-heading .br { color: var(--red); font-style: italic; }
+.story-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.08rem; line-height: 1.75;
+  color: var(--cream-muted); font-style: italic;
+}
+.story-divider {
+  width: 36px; height: 2px; background: var(--gold);
+  margin: 1.5rem 0;
+  opacity: .4;
+}
+.story-points {
+  list-style: none; padding: 0; margin: 1.2rem 0 0;
+  display: flex; flex-direction: column; gap: .8rem;
+}
+.story-points li {
+  display: flex; align-items: flex-start; gap: .7rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px; color: var(--cream-faint);
+  letter-spacing: .02em;
+}
+.story-points li .point-mark {
+  width: 5px; height: 5px; background: var(--red);
+  border-radius: 50%; margin-top: 7px; flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(255,0,1,.3);
+}
+
+/* ── Services / What we do ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-top: .8rem;
+}
+@media (max-width: 900px) { .services-grid { grid-template-columns: 1fr; } }
+
+.service-card {
+  position: relative;
+  padding: 2rem 1.8rem;
+  border: 1px solid var(--warm-border);
+  background: var(--warm-card);
+  backdrop-filter: blur(6px);
+  transition: all .5s cubic-bezier(.34,1.56,.64,1);
+  overflow: hidden;
+}
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0; transition: opacity .4s;
+}
+.service-card:hover::before { opacity: 1; }
+.service-card:hover {
+  border-color: rgba(255,0,1,.15);
+  background: rgba(20,16,12,.7);
+  transform: translateY(-4px);
+}
+.service-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px; font-weight: 600;
+  color: var(--red); letter-spacing: .15em;
+  margin-bottom: 1.3rem;
+  opacity: .7;
+}
+.service-icon {
+  width: 36px; height: 36px;
+  margin-bottom: 1.2rem;
+  opacity: .8;
+}
+.service-icon svg { width: 100%; height: 100%; }
+.service-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px; font-weight: 600;
+  color: var(--cream); letter-spacing: -.01em;
+  margin-bottom: .8rem; line-height: 1.2;
+}
+.service-title .br { color: var(--red); }
+.service-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; line-height: 1.6;
+  color: var(--cream-muted); font-style: italic;
+}
+.service-footer {
+  margin-top: 1.3rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(201,168,76,.08);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.service-tags {
+  display: flex; gap: .5rem; flex-wrap: wrap;
+}
+.service-tag {
+  font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+  padding: .2rem .6rem;
+  background: rgba(201,168,76,.06);
+  border: 1px solid rgba(201,168,76,.1);
+  color: var(--gold); border-radius: 2px;
+}
+
+/* ── Process section ── */
+.process-section { padding: 5rem 2.5rem 6rem; }
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+@media (max-width: 900px) { .process-steps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 540px) { .process-steps { grid-template-columns: 1fr; } }
+
+.process-step {
+  position: relative;
+  padding: 1.8rem 1.5rem;
+  border: 1px solid var(--warm-border);
+  background: var(--warm-card);
+  backdrop-filter: blur(4px);
+}
+.process-step::after {
+  content: ''; position: absolute; bottom: -1rem; left: 50%;
+  width: 1px; height: 1rem;
+  background: rgba(201,168,76,.15);
+}
+.process-step:last-child::after { display: none; }
+
+.process-step-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px; font-weight: 600;
+  color: var(--gold); letter-spacing: .2em;
+  margin-bottom: 1rem;
+}
+.process-step-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px; font-weight: 600;
+  color: var(--cream); margin-bottom: .7rem;
+  letter-spacing: -.01em;
+}
+.process-step-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .95rem; line-height: 1.55;
+  color: var(--cream-muted); font-style: italic;
+}
+
+/* ── CTA section ── */
+.cta-section {
+  padding: 6rem 2.5rem;
+  text-align: center;
+  position: relative;
+}
+.cta-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, rgba(255,0,1,.04), transparent 60%);
+  pointer-events: none;
+}
+.cta-inner {
+  position: relative; max-width: 640px; margin: 0 auto;
+}
+.cta-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700; line-height: 1.05; letter-spacing: -.03em;
+  color: var(--cream); margin-bottom: 1.2rem;
+}
+.cta-title .br { color: var(--red); }
+.cta-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; line-height: 1.6;
+  color: var(--cream-muted); font-style: italic;
+  margin-bottom: 2.5rem;
+}
+.cta-actions {
+  display: flex; gap: 1rem; justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Footer ── */
+.footer {
+  padding: 2.5rem 2.5rem 2rem;
+  border-top: 1px solid rgba(201,168,76,.08);
+  max-width: 1280px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-brand {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--cream-faint);
+}
+.footer-brand .r { color: var(--red); }
+.footer-links {
+  display: flex; gap: 1.8rem;
+}
+.footer-link {
+  font-size: 10px; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--cream-faint); text-decoration: none;
+  transition: color .3s;
+}
+.footer-link:hover { color: var(--gold); }
+.footer-copy {
+  font-size: 10px; color: var(--cream-faint);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero { padding: 8rem 1.5rem 5rem; }
+  .section { padding: 4rem 1.5rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr; }
+}
+</style>
 </head>
-<body class="gradient-bg min-h-screen">
+<body>
 
-    <!-- Navigation -->
-    <nav class="p-6 flex justify-between items-center border-b border-gray-800">
-        <div class="text-2xl font-bold stencil tracking-widest brand-red">RED STUDIO</div>
-        <div class="space-x-8 text-sm uppercase tracking-widest font-light">
-            <a href="#gallery" class="hover:text-red-500 transition">Gallery</a>
-            <a href="#about" class="hover:text-red-500 transition">About</a>
-            <a href="#contact" class="hover:text-red-500 transition">Contact</a>
+<!-- Ambient background -->
+<div class="ambient">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+</div>
+<div class="grain"></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">
+    <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="8" y="4" width="16" height="24" rx="2" fill="#FF0001" opacity=".9"/>
+      <path d="M10 8 L10 24 L22 24 L22 8 Z" fill="none"/>
+      <path d="M12 12 L12 20 L20 20 L20 12 Z" fill="#FF0001"/>
+    </svg>
+    <span class="nav-brand">Red Studio</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#story" class="nav-link">The Work</a>
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#process" class="nav-link">Process</a>
+    <a href="#contact" class="nav-cta">Begin</a>
+  </div>
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Psychological Branding &mdash; London
+    </div>
+
+    <!-- Hero illustration — the vector portrait -->
+    <div class="hero-illustration">
+      <object data="/woman_vector_pro.svg" type="image/svg+xml"
+              style="width:100%;height:auto;">
+        <img src="/woman_pro_render.png" alt="RED Studio illustration"
+             style="width:100%;height:auto;object-fit:contain;">
+      </object>
+    </div>
+
+    <div class="hero-title-block">
+      <div class="hero-eyebrow">Emotional Engineering</div>
+      <h1 class="hero-title">
+        We engineer the<br>
+        <span class="r">feeling</span> behind<br>
+        the brand.
+      </h1>
+    </div>
+
+    <p class="hero-tagline">
+      Red Studio designs the subconscious architecture of premium brands &mdash;
+      the emotion, the identity, the signal that makes people belong.
+    </p>
+
+    <div class="hero-divider"></div>
+
+    <div class="hero-actions">
+      <a href="#story" class="btn btn-primary">
+        See the work <span class="arrow">&rarr;</span>
+      </a>
+      <a href="#services" class="btn btn-outline">What we do</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-cue">
+    <span>Scroll</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- Story / Illustration section -->
+<section class="story-section" id="story">
+  <div class="story-grid">
+    <div class="story-illustration reveal">
+      <div class="story-glow"></div>
+      <object data="/woman_vector_pro.svg" type="image/svg+xml"
+              style="width:100%;max-width:420px;">
+        <img src="/woman_pro_render.png" alt="Vector illustration — RED Studio"
+             style="width:100%;max-width:420px;object-fit:contain;">
+      </object>
+    </div>
+    <div class="story-text reveal">
+      <div class="story-label">The Illustration</div>
+      <h2 class="story-heading">
+        Every brand has a<br>
+        <span class="br">face</span> people remember.
+      </h2>
+      <div class="story-divider"></div>
+      <p class="story-body">
+        This vector portrait was built from basic shapes &mdash; circles, ellipses,
+        confident bezier strokes &mdash; the same method used to design
+        award-winning logos at the highest level.
+      </p>
+      <ul class="story-points">
+        <li><span class="point-mark"></span> Flat, scalable vector &mdash; works at any size, print or screen</li>
+        <li><span class="point-mark"></span> Clean paths, minimal nodes &mdash; fast, editable, production-ready</li>
+        <li><span class="point-mark"></span> Red Studio accent (#FF0001) woven into the design</li>
+        <li><span class="point-mark"></span> Four color variants delivered &mdash; light, dark, monotone black, monotone white</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Services section -->
+<section class="section" id="services">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">What we do</div>
+    <h2 class="section-title">
+      Three paths to a<br>
+      <span class="br">sovereign brand.</span>
+    </h2>
+    <p class="section-desc">
+      From first idea to full identity &mdash; we engineer every layer
+      of how your brand feels.
+    </p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-number">01 / Identity</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18" cy="18" r="16" stroke="#C9A84C" stroke-width="1.2" opacity=".6"/>
+          <path d="M12 14 L18 10 L24 14 L22 26 L14 26 Z" fill="#FF0001" opacity=".85"/>
+          <circle cx="18" cy="17" r="3" fill="#F5E6CC" opacity=".7"/>
+        </svg>
+      </div>
+      <h3 class="service-title">
+        Brand <span class="br">Identity</span>
+      </h3>
+      <p class="service-desc">
+        Name, logo, visual language &mdash; the complete face of a sovereign brand.
+        Every element chosen to signal the right emotion.
+      </p>
+      <div class="service-footer">
+        <div class="service-tags">
+          <span class="service-tag">Logo</span>
+          <span class="service-tag">Color</span>
+          <span class="service-tag">Typography</span>
         </div>
-    </nav>
+      </div>
+    </div>
 
-    <!-- Hero Section -->
-    <header class="py-24 px-6 text-center">
-        <h1 class="text-7xl md:text-9xl stencil font-bold mb-4 tracking-tighter">
-            DREAM <span class="brand-red">CODING</span>
-        </h1>
-        <p class="text-gray-400 max-w-2xl mx-auto text-lg font-light leading-relaxed">
-            Where abstract 3D geometry meets the precision of code. <br>
-            Exclusive digital art for the modern collector.
-        </p>
-        <div class="mt-12">
-            <a href="#gallery" class="bg-brand-red text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-red-700 transition duration-300">
-                Enter Gallery
-            </a>
+    <div class="service-card reveal">
+      <div class="service-number">02 / Emotion</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 8 C14 12 13 18 15 22 C16 24 18 25 18 25 C18 25 20 24 21 22 C23 18 22 12 18 8Z"
+                fill="#FF0001" opacity=".7"/>
+          <path d="M18 8 C18 8 18 14 18 20" stroke="#C9A84C" stroke-width="1" opacity=".5" fill="none"/>
+        </svg>
+      </div>
+      <h3 class="service-title">
+        Emotional<br><span class="br">Engineering</span>
+      </h3>
+      <p class="service-desc">
+        The psychology of how your brand makes people feel &mdash; belonging,
+        desire, status, trust. We design the signal.
+      </p>
+      <div class="service-footer">
+        <div class="service-tags">
+          <span class="service-tag">Psychology</span>
+          <span class="service-tag">Signal</span>
+          <span class="service-tag">Positioning</span>
         </div>
-    </header>
+      </div>
+    </div>
 
-    <!-- Gallery Preview -->
-    <section id="gallery" class="py-20 px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <!-- Placeholder for the Golden Sphere -->
-            <div class="group relative overflow-hidden rounded-2xl bg-gray-900 aspect-square border border-gray-800 hover:border-brand-red transition duration-500">
-                <div class="absolute inset-0 flex items-center justify-center text-gray-600 stencil text-2xl">
-                    [ Golden Sphere 3D ]
-                </div>
-                <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition duration-500">
-                    <p class="text-white font-bold">Eternal Light</p>
-                    <p class="text-gray-400 text-sm">Digital Sculpture</p>
-                </div>
-            </div>
-            <!-- Placeholder 2 -->
-            <div class="group relative overflow-hidden rounded-2xl bg-gray-900 aspect-square border border-gray-800 hover:border-brand-red transition duration-500">
-                <div class="absolute inset-0 flex items-center justify-center text-gray-600 stencil text-2xl">
-                    [ Glass Vines 3D ]
-                </div>
-                <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition duration-500">
-                    <p class="text-white font-bold">Organic Flow</p>
-                    <p class="text-gray-400 text-sm">Abstract Geometry</p>
-                </div>
-            </div>
-            <!-- Placeholder 3 -->
-            <div class="group relative overflow-hidden rounded-2xl bg-gray-900 aspect-square border border-gray-800 hover:border-brand-red transition duration-500">
-                <div class="absolute inset-0 flex items-center justify-center text-gray-600 stencil text-2xl">
-                    [ Red Studio Logo ]
-                </div>
-                <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition duration-500">
-                    <p class="text-white font-bold">Brand Identity</p>
-                    <p class="text-gray-400 text-sm">Vector Art</p>
-                </div>
-            </div>
+    <div class="service-card reveal">
+      <div class="service-number">03 / Art</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="6" width="20" height="24" rx="2" fill="#FF0001" opacity=".8"/>
+          <path d="M11 9 L11 25 L23 25 L23 9 Z" fill="none" stroke="#F5E6CC" stroke-width=".8" opacity=".3"/>
+          <circle cx="14" cy="14" r="2" fill="#C9A84C" opacity=".7"/>
+          <circle cx="20" cy="18" r="1.5" fill="#C9A84C" opacity=".5"/>
+        </svg>
+      </div>
+      <h3 class="service-title">
+        Vector<br><span class="br">Illustration</span>
+      </h3>
+      <p class="service-desc">
+        Clean, scalable vector art built with professional methodology.
+        Logos, portraits, brand assets &mdash; web and print ready.
+      </p>
+      <div class="service-footer">
+        <div class="service-tags">
+          <span class="service-tag">Vector</span>
+          <span class="service-tag">Web</span>
+          <span class="service-tag">Print</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-gray-800 text-center text-gray-500 text-xs uppercase tracking-widest">
-        &copy; 2026 RED STUDIO. Created in the Secret Garden.
-    </footer>
+<!-- Process section -->
+<section class="process-section" id="process">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">How we work</div>
+    <h2 class="section-title">
+      From signal to<br>
+      <span class="br">sovereign identity.</span>
+    </h2>
+  </div>
 
+  <div class="process-steps">
+    <div class="process-step reveal">
+      <div class="process-step-num">01</div>
+      <h3 class="process-step-title">Audit</h3>
+      <p class="process-step-desc">
+        We examine your brand's current signal &mdash; what you project,
+        what you're missing, where the gaps are.
+      </p>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-step-num">02</div>
+      <h3 class="process-step-title">Design</h3>
+      <p class="process-step-desc">
+        The identity takes shape &mdash; logo, color, language, the whole
+        visual and emotional architecture.
+      </p>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-step-num">03</div>
+      <h3 class="process-step-title">Build</h3>
+      <p class="process-step-desc">
+        Vector assets, brand guidelines, digital presence &mdash; everything
+        produced to professional standard.
+      </p>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-step-num">04</div>
+      <h3 class="process-step-title">Own</h3>
+      <p class="process-step-desc">
+        You receive the full sovereign identity package. Ready for web,
+        print, and every surface your brand lives on.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-glow"></div>
+  <div class="cta-inner reveal">
+    <h2 class="cta-title">
+      Your brand deserves<br>
+      <span class="br">to be felt.</span>
+    </h2>
+    <p class="cta-desc">
+      Red Studio works with a small number of clients each year.
+      If you're ready to build a sovereign identity, begin here.
+    </p>
+    <div class="cta-actions">
+      <a href="mailto:icelandicexperts@gmail.com" class="btn btn-primary">
+        Begin the audit <span class="arrow">&rarr;</span>
+      </a>
+      <a href="#" class="btn btn-outline">View the portfolio</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-brand">
+    <span class="r">Red</span> Studio &mdash; Psychological Branding
+  </div>
+  <div class="footer-links">
+    <a href="#story" class="footer-link">Work</a>
+    <a href="#services" class="footer-link">Services</a>
+    <a href="#process" class="footer-link">Process</a>
+  </div>
+  <div class="footer-copy">
+    &copy; Red Studio &mdash; Sovereign Identity Engineering
+  </div>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.getElementById('navLinks');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+
+// Mobile menu toggle
+mobileToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
+// Close mobile menu on link click
+document.querySelectorAll('.nav-link, .nav-cta').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+  });
+});
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+
+reveals.forEach(el => revealObserver.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
 </body>
 </html>

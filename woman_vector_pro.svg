@@ -1,0 +1,456 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 600" width="100%" height="100%" overflow="visible">
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       RED STUDIO — Vector Illustration
+       Built using Nick Saporito methodology:
+       · Basic shapes (circles, ellipses) as foundation
+       · Each element created individually, layered on top
+       · Bezier pen for granular control where needed
+       · Consistent stroke weight throughout
+       · Flat design with limited opacity for depth
+       · Clean, scalable, web-ready
+       ═══════════════════════════════════════════════════════════════ -->
+
+  <defs>
+    <!-- Reusable drop shadow filter (Nick technique: duplicated + blurred) -->
+    <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="2" dy="2" result="offsetBlur"/>
+      <feComponentTransfer in="offsetBlur">
+        <feFuncA type="linear" slope="0.15"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- ═══════════════════════════════════════════
+       BACKGROUND — flat color
+       ═══════════════════════════════════════════ -->
+  <rect width="500" height="600" fill="#f7f5f2"/>
+
+  <!-- Background accent — subtle warm ellipse behind subject -->
+  <ellipse cx="250" cy="235" rx="155" ry="175" fill="#fff8f0" opacity="0.45"/>
+
+
+  <!-- ═══════════════════════════════════════════
+       HAIR — back layer
+       Foundation: large organic shape (bezier)
+       Built from one confident path, minimal nodes
+       ═══════════════════════════════════════════ -->
+
+  <!-- Main hair silhouette — the BIG shape. One path. -->
+  <path d="
+    M 195,55
+    C 148,72 118,135 130,210
+    C 137,248 165,290 200,320
+    C 225,342 262,354 298,350
+    C 332,346 360,330 378,305
+    C 396,278 405,245 398,205
+    C 390,168 368,135 338,115
+    C 308,100 272,94 242,97
+    C 218,99 202,85 195,55 Z"
+    fill="#c8a85c" stroke="#20140d" stroke-width="2.5" stroke-linejoin="round"
+    filter="url(#softShadow)"/>
+
+  <!-- Hair shadow — right side, flat darker tone -->
+  <path d="
+    M 305,105
+    C 330,100 358,118 372,145
+    C 386,172 394,205 390,240
+    C 386,270 374,296 358,314
+    C 342,330 322,338 300,336
+    C 315,325 332,305 344,278
+    C 358,245 362,210 354,178
+    C 346,150 328,125 308,108
+    C 302,104 304,105 305,105 Z"
+    fill="#a08038" opacity="0.45"/>
+
+  <!-- Hair highlight — left, single flat stroke -->
+  <path d="
+    M 205,80
+    C 200,102 196,132 204,165
+    C 212,195 232,222 258,240
+    C 275,252 295,254 312,246"
+    fill="none" stroke="#e8c878" stroke-width="4.5" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Secondary hair highlight -->
+  <path d="
+    M 235,88
+    C 232,112 234,142 244,175
+    C 254,202 272,225 294,238
+    C 306,244 320,244 328,238"
+    fill="none" stroke="#e8c878" stroke-width="3" stroke-linecap="round" opacity="0.25"/>
+
+
+  <!-- ═══════════════════════════════════════════
+       NECK — simple ellipse + path
+       ═══════════════════════════════════════════ -->
+
+  <!-- Neck base — ellipse for foundation, then shaped -->
+  <ellipse cx="252" cy="375" rx="28" ry="42" fill="#f2cda0" stroke="#20140d" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- Neck shadow side -->
+  <path d="
+    M 228,342
+    C 224,362 222,385 226,408
+    L 252,408
+    C 250,385 249,362 250,342 Z"
+    fill="#e0b888" opacity="0.35"/>
+
+
+  <!-- ═══════════════════════════════════════════
+       SHOULDERS / TOP — bold simple shapes
+       ═══════════════════════════════════════════ -->
+
+  <!-- Main shoulder shape -->
+  <path d="
+    M 198,408
+    C 190,422 180,448 178,478
+    C 175,508 178,538 183,562
+    C 186,575 198,585 218,588
+    L 278,588
+    C 288,584 292,574 292,562
+    L 292,508
+    C 295,485 302,465 318,450
+    C 332,438 348,432 365,432
+    C 385,432 408,444 425,465
+    C 440,484 446,512 446,548
+    L 446,588
+    C 446,592 438,590 422,588
+    L 278,586
+    C 258,586 242,578 234,565
+    L 228,540
+    C 224,510 222,475 224,448
+    L 228,412 Z"
+    fill="#1a1a1a" stroke="#20140d" stroke-width="2.5" stroke-linejoin="round"
+    filter="url(#softShadow)"/>
+
+  <!-- Neckline detail — small curved cut -->
+  <path d="
+    M 198,408
+    C 215,414 245,418 278,415
+    C 302,413 328,411 348,414
+    C 330,418 305,420 278,418
+    C 252,418 225,415 198,408 Z"
+    fill="#252525" stroke="none"/>
+
+  <!-- Shoulder highlight — subtle shine line -->
+  <path d="
+    M 205,415
+    C 215,420 240,423 268,421
+    C 288,419 308,417 325,420"
+    fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" opacity="0.25"/>
+
+
+  <!-- ═══════════════════════════════════════════
+       FACE — ellipse foundation + bezier refinement
+       Nick method: start with circle/ellipse, refine with pen
+       ═══════════════════════════════════════════ -->
+
+  <!-- Face base — ellipse (Nick foundation shape) -->
+  <ellipse cx="252" cy="252" rx="62" ry="105" fill="#f2cda0" stroke="#20140d" stroke-width="2.8" stroke-linejoin="round"
+    filter="url(#softShadow)"/>
+
+  <!-- Face shadow — right side, flat -->
+  <path d="
+    M 252,148
+    C 282,148 308,180 313,222
+    C 318,262 312,302 292,335
+    C 276,355 264,362 252,365
+    C 268,355 286,330 300,298
+    C 316,262 312,222 304,186
+    C 294,162 270,152 252,148 Z"
+    fill="#e0b888" opacity="0.35"/>
+
+  <!-- Face highlight — left side -->
+  <path d="
+    M 252,148
+    C 222,148 195,180 192,222
+    C 189,262 194,302 212,335
+    C 207,343 198,346 188,342
+    C 214,318 224,280 224,248
+    C 224,215 234,180 248,162
+    C 250,156 251,152 252,148 Z"
+    fill="#fae0b8" opacity="0.2"/>
+
+  <!-- Forehead highlight — small ellipse -->
+  <ellipse cx="232" cy="172" rx="16" ry="7" fill="#fae0b8" opacity="0.2" transform="rotate(-5 232 172)"/>
+
+
+  <!-- ═══════════════════════════════════════════
+       EYES — built from circles (Nick foundation)
+       Iris = circle, pupil = smaller circle, lid = bezier
+       ═══════════════════════════════════════════ -->
+
+  <!-- LEFT EYE -->
+
+  <!-- Eye white — ellipse foundation -->
+  <ellipse cx="236" cy="248" rx="19" ry="12" fill="#faf7f4" stroke="#20140d" stroke-width="2.2" stroke-linejoin="round"/>
+
+  <!-- Upper eyelid — thick bezier line (Nick: consistent stroke weight) -->
+  <path d="
+    M 214,248
+    C 218,236 230,229 240,230
+    C 252,231 263,237 266,248"
+    fill="none" stroke="#20140d" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Iris — circle (Nick: basic shape foundation) -->
+  <circle cx="236" cy="248" r="9" fill="#3d2817" stroke="#20140d" stroke-width="1.3"/>
+
+  <!-- Pupil — smaller circle -->
+  <circle cx="236" cy="248" r="4.5" fill="#0d0804"/>
+
+  <!-- Eye highlights — clean white dots -->
+  <circle cx="233" cy="245" r="2.5" fill="#ffffff"/>
+  <circle cx="240" cy="251" r="1.2" fill="#ffffff"/>
+
+  <!-- Lower eyelid line -->
+  <path d="
+    M 216,255
+    C 222,260 232,262 240,262
+    C 248,262 256,259 260,255"
+    fill="none" stroke="#20140d" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- Eyelashes — 3 consistent strokes -->
+  <line x1="217" y1="238" x2="212" y2="230" stroke="#20140d" stroke-width="2" stroke-linecap="round"/>
+  <line x1="229" y1="234" x2="227" y2="226" stroke="#20140d" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="248" y1="234" x2="251" y2="226" stroke="#20140d" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- RIGHT EYE -->
+
+  <ellipse cx="287" cy="246" rx="18" ry="11" fill="#faf7f4" stroke="#20140d" stroke-width="2.2" stroke-linejoin="round"/>
+
+  <path d="
+    M 265,246
+    C 269,234 280,227 290,228
+    C 302,229 313,235 315,246"
+    fill="none" stroke="#20140d" stroke-width="3.2" stroke-linecap="round"/>
+
+  <circle cx="287" cy="246" r="8" fill="#3d2817" stroke="#20140d" stroke-width="1.3"/>
+  <circle cx="287" cy="246" r="4" fill="#0d0804"/>
+  <circle cx="284" cy="243" r="2" fill="#ffffff"/>
+  <circle cx="290" cy="249" r="1" fill="#ffffff"/>
+
+  <path d="
+    M 267,252
+    C 273,257 283,259 290,259
+    C 298,258 307,255 311,252"
+    fill="none" stroke="#20140d" stroke-width="1.6" stroke-linecap="round"/>
+
+  <!-- Right eyelashes -->
+  <line x1="267" y1="236" x2="262" y2="228" stroke="#20140d" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="280" y1="232" x2="280" y2="224" stroke="#20140d" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="298" y1="234" x2="302" y2="226" stroke="#20140d" stroke-width="1.6" stroke-linecap="round"/>
+
+
+  <!-- ═══════════════════════════════════════════
+       EYEBROWS — bold arcs, consistent stroke
+       ═══════════════════════════════════════════ -->
+
+  <path d="
+    M 204,224
+    C 212,216 228,212 245,217
+    C 249,218 251,220 249,224"
+    fill="none" stroke="#20140d" stroke-width="3" stroke-linecap="round"/>
+
+  <path d="
+    M 257,221
+    C 264,213 280,210 296,215
+    C 300,216 302,218 300,222"
+    fill="none" stroke="#20140d" stroke-width="2.5" stroke-linecap="round"/>
+
+
+  <!-- ═══════════════════════════════════════════
+       NOSE — small, simple shape
+       ═══════════════════════════════════════════ -->
+
+  <path d="
+    M 248,278
+    C 245,286 244,294 247,297
+    C 250,299 253,297 254,293
+    C 255,286 253,280 250,278"
+    fill="#e0b888" stroke="#20140d" stroke-width="1.4" stroke-linejoin="round"/>
+
+
+  <!-- ═══════════════════════════════════════════
+       MOUTH — with RED STUDIO accent
+       ═══════════════════════════════════════════ -->
+
+  <!-- Upper lip -->
+  <path d="
+    M 232,316
+    C 236,312 246,308 252,309
+    C 258,308 268,312 272,316
+    C 268,320 258,322 252,322
+    C 246,322 236,320 232,316 Z"
+    fill="#c47a6a" stroke="#20140d" stroke-width="1.6" stroke-linejoin="round"/>
+
+  <!-- Lower lip — fuller -->
+  <path d="
+    M 232,316
+    C 236,321 244,328 251,329
+    C 255,330 259,330 263,329
+    C 270,327 274,321 274,316
+    C 270,322 260,325 252,325
+    C 244,325 236,321 232,316 Z"
+    fill="#cf6555" stroke="#20140d" stroke-width="1.6" stroke-linejoin="round"/>
+
+  <!-- RED STUDIO accent — subtle red warmth on lower lip -->
+  <path d="
+    M 238,320
+    C 242,325 248,328 252,328
+    C 256,328 262,325 266,320
+    C 262,325 256,328 252,328
+    C 248,328 242,325 238,320 Z"
+    fill="#ff0001" opacity="0.1"/>
+
+  <!-- Mouth line -->
+  <path d="
+    M 234,318
+    C 240,321 247,323 252,323
+    C 257,323 264,321 270,318"
+    fill="none" stroke="#20140d" stroke-width="1.1" stroke-linecap="round"/>
+
+
+  <!-- ═══════════════════════════════════════════
+       CHEEKS — flat blush ellipses
+       ═══════════════════════════════════════════ -->
+
+  <ellipse cx="212" cy="278" rx="12" ry="6" fill="#d89070" opacity="0.18" transform="rotate(-6 212 278)"/>
+  <ellipse cx="290" cy="276" rx="9" ry="5" fill="#d89070" opacity="0.12" transform="rotate(4 290 276)"/>
+
+
+  <!-- ═══════════════════════════════════════════
+       FOREHEAD HAIR — strands across forehead
+       Built as individual layered shapes (Nick method)
+       ═══════════════════════════════════════════ -->
+
+  <!-- Primary strand — bold shape -->
+  <path d="
+    M 185,78
+    C 192,110 205,142 225,165
+    C 245,182 272,186 298,180
+    C 318,176 332,165 336,150
+    C 340,135 332,118 318,106
+    C 302,93 282,86 260,86
+    C 238,86 210,82 185,78 Z"
+    fill="#c8a85c" stroke="#20140d" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- Strand highlight -->
+  <path d="
+    M 200,88
+    C 206,112 220,138 238,155
+    C 250,165 268,172 285,170
+    C 280,163 265,150 252,138
+    C 240,125 228,112 220,100
+    C 215,93 206,89 200,88 Z"
+    fill="#e8c878" opacity="0.4"/>
+
+  <!-- Secondary strand -->
+  <path d="
+    M 180,85
+    C 188,118 202,150 220,175
+    C 238,195 262,202 288,196
+    C 305,192 318,180 322,165
+    C 326,150 320,135 306,122
+    C 290,108 270,98 250,96
+    C 230,94 200,88 180,85 Z"
+    fill="#a08038" stroke="#20140d" stroke-width="1.5" stroke-linejoin="round" opacity="0.6"/>
+
+  <!-- Wispy end — small flourish -->
+  <path d="
+    M 334,155
+    C 340,148 344,138 340,128
+    C 336,118 328,115 325,122
+    C 320,132 323,148 328,155 Z"
+    fill="#e8c878" opacity="0.3"/>
+
+
+  <!-- ═══════════════════════════════════════════
+       HAND — simplified layered shapes
+       ═══════════════════════════════════════════ -->
+
+  <!-- Forearm -->
+  <path d="
+    M 358,418
+    C 368,395 378,368 382,342
+    C 384,322 382,308 378,300
+    C 374,292 370,294 368,302
+    C 365,316 362,336 358,365
+    C 354,392 350,412 348,422 Z"
+    fill="#1a1a1a" stroke="#20140d" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- Palm — simple rounded shape -->
+  <path d="
+    M 370,306
+    C 374,295 378,282 376,270
+    C 374,260 368,256 364,260
+    C 360,264 358,276 359,290
+    C 360,300 366,308 370,306 Z"
+    fill="#f2cda0" stroke="#20140d" stroke-width="1.6" stroke-linejoin="round"/>
+
+  <!-- Finger 1 — curling inward -->
+  <path d="
+    M 364,260
+    C 361,248 356,234 354,224
+    C 352,216 354,211 358,213
+    C 362,215 364,224 366,236
+    C 368,248 368,258 367,266 Z"
+    fill="#f2cda0" stroke="#20140d" stroke-width="1.4" stroke-linejoin="round"/>
+
+  <!-- Finger 2 — behind, shadow -->
+  <path d="
+    M 361,262
+    C 358,250 353,236 351,226
+    C 349,218 351,214 355,216
+    C 359,218 361,228 362,240
+    C 363,251 363,260 362,268 Z"
+    fill="#e0b888" stroke="#4a3a2e" stroke-width="1.1" stroke-linejoin="round" opacity="0.65"/>
+
+  <!-- Knuckle detail line -->
+  <path d="M 369,284 C 372,282 374,283 375,285" stroke="#4a3a2e" stroke-width="0.9" fill="none" opacity="0.4"/>
+
+
+  <!-- ═══════════════════════════════════════════
+       RED STUDIO — brand accent elements
+       Subtle red sparkles near eye (energy/enthusiasm)
+       ═══════════════════════════════════════════ -->
+
+  <!-- Primary sparkle — 4-pointed star -->
+  <path d="
+    M 295,214 L 297,210 L 299,214 L 303,216 L 299,218 L 297,222 L 295,218 L 291,216 Z"
+    fill="#ff0001" opacity="0.5"/>
+
+  <!-- Secondary sparkle -->
+  <path d="
+    M 248,220 L 249,217 L 250,220 L 253,221 L 250,222 L 249,225 L 248,222 L 245,221 Z"
+    fill="#ff0001" opacity="0.28"/>
+
+  <!-- Tiny dot -->
+  <circle cx="278" cy="218" r="1.2" fill="#ff0001" opacity="0.32"/>
+
+  <!-- ═══════════════════════════════════════════
+       Red connecting thread — ties design to brand identity
+       ═══════════════════════════════════════════ -->
+  <path d="
+    M 185,78
+    C 172,72 158,74 148,85
+    C 138,98 135,118 140,138"
+    fill="none" stroke="#ff0001" stroke-width="2" stroke-linecap="round" opacity="0.18"/>
+  <circle cx="140" cy="138" r="2.5" fill="#ff0001" opacity="0.28"/>
+
+
+  <!-- ═══════════════════════════════════════════
+       VERSIONS NOTE — for Red Studio delivery
+       Nick method: provide multiple color versions
+       ═══════════════════════════════════════════ -->
+
+  <!-- Invisible placeholder for monotone version data
+       (In Inkscape: duplicate group, make black = monotone version)
+       In production: export these variants separately.
+  -->
+
+</svg>
